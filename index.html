@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>⚜️ Fiorentina 1926–2026 · Cento anni di Viola</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --viola:#592C82;
+    --viola-scuro:#3A1A5B;
+    --viola-chiaro:#7B4BB0;
+    --oro:#C9A227;
+    --oro-chiaro:#E8C766;
+    --crema:#FBF8FF;
+    --inchiostro:#241433;
+    --ombra:0 10px 30px rgba(58,26,91,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Arial,sans-serif;
+    color:var(--inchiostro);
+    background:var(--crema);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Cinzel',Georgia,serif}
+  a{color:var(--viola)}
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(58,26,91,.92);backdrop-filter:blur(8px);
+    display:flex;gap:4px;justify-content:center;flex-wrap:wrap;
+    padding:10px 8px;border-bottom:2px solid var(--oro);
+  }
+  nav a{
+    color:#fff;text-decoration:none;font-size:.82rem;font-weight:600;
+    padding:6px 12px;border-radius:999px;opacity:.85;transition:.2s;letter-spacing:.3px;
+  }
+  nav a:hover{background:var(--oro);color:var(--viola-scuro);opacity:1}
+
+  /* ---- HERO ---- */
+  header.hero{
+    position:relative;text-align:center;color:#fff;
+    padding:90px 20px 80px;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(123,75,176,.55), transparent 60%),
+      linear-gradient(160deg,var(--viola-scuro),var(--viola) 55%,var(--viola-chiaro));
+    overflow:hidden;
+  }
+  .hero .giglio-bg{
+    position:absolute;inset:0;font-size:46vh;line-height:1;opacity:.07;
+    display:flex;align-items:center;justify-content:center;pointer-events:none;user-select:none;
+  }
+  .hero .occhiello{letter-spacing:6px;font-weight:600;font-size:.8rem;color:var(--oro-chiaro);text-transform:uppercase}
+  .hero .anni{
+    font-family:'Cinzel',serif;font-weight:900;
+    font-size:clamp(3rem,12vw,8rem);line-height:1;margin:10px 0;
+    background:linear-gradient(180deg,#fff,var(--oro-chiaro));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 24px rgba(201,162,39,.25);
+  }
+  .hero h1{font-size:clamp(1.3rem,4vw,2.4rem);font-weight:700;margin-bottom:6px}
+  .hero p.sub{max-width:640px;margin:14px auto 0;opacity:.92;font-size:1.05rem}
+  .hero .giglio-grande{font-size:3.4rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.3))}
+  .badge-cento{
+    display:inline-block;margin-top:26px;padding:10px 22px;border:2px solid var(--oro);
+    border-radius:999px;color:var(--oro-chiaro);font-family:'Cinzel',serif;font-weight:700;letter-spacing:2px;
+  }
+
+  /* ---- LAYOUT ---- */
+  section{padding:70px 20px;max-width:1080px;margin:0 auto}
+  .sezione-titolo{text-align:center;margin-bottom:48px}
+  .sezione-titolo .kick{color:var(--oro);font-weight:700;letter-spacing:3px;font-size:.78rem;text-transform:uppercase}
+  .sezione-titolo h2{font-size:clamp(1.6rem,4vw,2.6rem);color:var(--viola-scuro);margin-top:6px}
+  .sezione-titolo h2::after{content:"⚜";display:block;color:var(--oro);font-size:1.2rem;margin-top:8px}
+  .alt{background:linear-gradient(180deg,#fff,#F3EDFA);max-width:none}
+  .alt > *{max-width:1080px;margin-left:auto;margin-right:auto}
+
+  /* ---- TIMELINE ---- */
+  .timeline{position:relative;margin:0 auto;max-width:840px}
+  .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;
+    background:linear-gradient(var(--oro),var(--viola-chiaro));transform:translateX(-50%)}
+  .evento{position:relative;width:50%;padding:14px 36px;margin-bottom:8px}
+  .evento:nth-child(odd){left:0;text-align:right}
+  .evento:nth-child(even){left:50%}
+  .evento .card{
+    background:#fff;border-radius:14px;padding:16px 18px;box-shadow:var(--ombra);
+    border-top:3px solid var(--oro);position:relative;
+  }
+  .evento .anno{font-family:'Cinzel',serif;font-weight:900;color:var(--viola);font-size:1.25rem}
+  .evento h3{font-size:1.02rem;color:var(--viola-scuro);margin:2px 0 4px}
+  .evento p{font-size:.9rem;color:#4a3a5c}
+  .evento::after{content:"";position:absolute;top:22px;width:16px;height:16px;border-radius:50%;
+    background:var(--oro);border:3px solid #fff;box-shadow:0 0 0 3px var(--viola-chiaro)}
+  .evento:nth-child(odd)::after{right:-8px}
+  .evento:nth-child(even)::after{left:-8px}
+  .evento.epica .card{border-top-color:var(--viola);background:linear-gradient(180deg,#fff,#F6EFFF)}
+  .evento .tag{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.5px;
+    text-transform:uppercase;color:#fff;background:var(--viola);padding:2px 8px;border-radius:6px;margin-bottom:6px}
+  .evento .tag.oro{background:var(--oro);color:var(--viola-scuro)}
+
+  /* ---- BACHECA TROFEI ---- */
+  .trofei{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px}
+  .trofeo{background:#fff;border-radius:16px;padding:26px 16px;text-align:center;box-shadow:var(--ombra);
+    border-bottom:4px solid var(--oro);transition:.25s}
+  .trofeo:hover{transform:translateY(-6px)}
+  .trofeo .icona{font-size:2.6rem}
+  .trofeo .conta{font-family:'Cinzel',serif;font-weight:900;font-size:2.6rem;color:var(--viola);line-height:1}
+  .trofeo .nome{font-weight:700;color:var(--viola-scuro);margin-top:4px;font-size:.95rem}
+  .trofeo .anni{font-size:.76rem;color:#6b5a7e;margin-top:6px}
+
+  /* ---- BAR CHART ---- */
+  .grafico{max-width:680px;margin:42px auto 0;background:#fff;border-radius:16px;padding:26px;box-shadow:var(--ombra)}
+  .grafico h3{color:var(--viola-scuro);font-size:1.05rem;margin-bottom:18px;text-align:center}
+  .barra{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .barra .et{flex:0 0 130px;font-size:.82rem;font-weight:600;text-align:right;color:#4a3a5c}
+  .barra .track{flex:1;background:#EEE6F7;border-radius:999px;height:22px;overflow:hidden}
+  .barra .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--viola),var(--viola-chiaro));
+    display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:.72rem;font-weight:800}
+  .barra .fill.oro{background:linear-gradient(90deg,var(--oro),var(--oro-chiaro));color:var(--viola-scuro)}
+
+  /* ---- FORMAZIONE ---- */
+  .formazione-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+  @media(max-width:760px){.formazione-wrap{grid-template-columns:1fr}}
+  .campo{width:100%;max-width:420px;margin:0 auto;display:block;border-radius:16px;box-shadow:var(--ombra)}
+  .modulo-note{background:#fff;border-radius:16px;padding:22px;box-shadow:var(--ombra)}
+  .modulo-note h3{color:var(--viola-scuro);margin-bottom:10px}
+  .modulo-note ul{list-style:none;font-size:.9rem}
+  .modulo-note li{padding:6px 0;border-bottom:1px dashed #E4D8F2;display:flex;justify-content:space-between;gap:10px}
+  .modulo-note li:last-child{border:none}
+  .modulo-note .ruolo{color:var(--oro);font-weight:700;font-size:.74rem;text-transform:uppercase}
+  .nota-piccola{font-size:.76rem;color:#6b5a7e;margin-top:12px;font-style:italic}
+
+  /* ---- LEGGENDE ---- */
+  .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+  .persona{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--ombra);transition:.25s}
+  .persona:hover{transform:translateY(-5px)}
+  .persona .top{background:linear-gradient(140deg,var(--viola),var(--viola-chiaro));color:#fff;
+    padding:18px;position:relative}
+  .persona .num{position:absolute;top:10px;right:14px;font-family:'Cinzel',serif;font-weight:900;
+    font-size:2.4rem;opacity:.3}
+  .persona .nome{font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem}
+  .persona .anni{font-size:.78rem;opacity:.85;margin-top:2px}
+  .persona .body{padding:14px 18px}
+  .persona .soprannome{color:var(--oro);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px}
+  .persona p{font-size:.88rem;color:#4a3a5c;margin-top:6px}
+
+  /* ---- ASTORI TRIBUTO ---- */
+  .astori{background:linear-gradient(140deg,var(--viola-scuro),var(--viola));color:#fff;
+    border-radius:20px;padding:40px;text-align:center;box-shadow:var(--ombra);position:relative;overflow:hidden}
+  .astori .th{font-size:5rem;font-family:'Cinzel',serif;font-weight:900;color:var(--oro-chiaro);line-height:1}
+  .astori h3{font-size:1.5rem;margin:6px 0}
+  .astori p{max-width:560px;margin:10px auto 0;opacity:.92}
+
+  /* ---- INFO TIFOSI ---- */
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .info-card{background:#fff;border-radius:16px;padding:22px;box-shadow:var(--ombra);border-left:4px solid var(--viola)}
+  .info-card .ico{font-size:1.8rem}
+  .info-card h3{color:var(--viola-scuro);font-size:1.05rem;margin:8px 0 4px}
+  .info-card p{font-size:.88rem;color:#4a3a5c}
+  .info-card b{color:var(--viola)}
+
+  /* ---- PRESIDENTI ---- */
+  .dirigenza{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .pres{background:#fff;border-radius:14px;padding:16px 18px;box-shadow:var(--ombra);border-top:3px solid var(--viola-chiaro)}
+  .pres .periodo{font-family:'Cinzel',serif;color:var(--oro);font-weight:700;font-size:.82rem}
+  .pres .nome{font-weight:800;color:var(--viola-scuro);margin:3px 0}
+  .pres p{font-size:.82rem;color:#4a3a5c}
+
+  /* ---- FOOTER ---- */
+  footer{background:var(--viola-scuro);color:#fff;text-align:center;padding:50px 20px;margin-top:30px}
+  footer .giglio{font-size:2.4rem}
+  footer h3{font-family:'Cinzel',serif;margin:10px 0}
+  footer a{color:var(--oro-chiaro);font-weight:600}
+  footer .mini{opacity:.7;font-size:.8rem;margin-top:18px}
+
+  @media(max-width:680px){
+    .timeline::before{left:18px}
+    .evento{width:100%;left:0!important;text-align:left!important;padding-left:46px;padding-right:8px}
+    .evento::after{left:10px!important;right:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#storia">Cronostoria</a>
+  <a href="#trofei">Trofei</a>
+  <a href="#xi">Undici Leggende</a>
+  <a href="#campioni">Campioni</a>
+  <a href="#astori">Astori</a>
+  <a href="#dirigenza">Dirigenza</a>
+  <a href="#tifosi">Per i Tifosi</a>
+</nav>
+
+<header class="hero">
+  <div class="giglio-bg">⚜</div>
+  <div class="occhiello">A.C.F. Fiorentina · Firenze</div>
+  <div class="giglio-grande">⚜️</div>
+  <div class="anni">1926 — 2026</div>
+  <h1>Cento Anni di Viola</h1>
+  <p class="sub">Un secolo di passione, di gigli e di battaglie. Dalla fondazione sulle rive
+  dell'Arno fino alle notti europee di oggi: la storia della Fiorentina, raccontata
+  per chi questa maglia la porta nel cuore.</p>
+  <div class="badge-cento">⚜ CENTENARIO · 26 AGOSTO 1926 ⚜</div>
+</header>
+
+<!-- ============ CRONOSTORIA ============ -->
+<section id="storia">
+  <div class="sezione-titolo">
+    <div class="kick">La linea del tempo</div>
+    <h2>Cronostoria della Viola</h2>
+  </div>
+  <div class="timeline">
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">Le origini</span>
+        <div class="anno">1926</div>
+        <h3>Nasce la Fiorentina</h3>
+        <p>Il 26 agosto, per volontà del Marchese <b>Luigi Ridolfi Vay da Verrazzano</b>,
+        nasce dalla fusione di <i>Club Sportivo Firenze</i> e <i>Palestra Ginnastica Libertas</i>.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Il colore</span>
+        <div class="anno">1928</div>
+        <h3>Il viola diventa leggenda</h3>
+        <p>La squadra adotta il celebre <b>viola</b>: secondo la tradizione, da un lavaggio
+        andato storto delle maglie biancorosse. Nasce il soprannome che dura un secolo.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">La casa</span>
+        <div class="anno">1931</div>
+        <h3>Lo Stadio di Nervi · Serie A</h3>
+        <p>Inaugurato lo stadio progettato da <b>Pier Luigi Nervi</b> (oggi <b>Artemio Franchi</b>),
+        capolavoro d'ingegneria con la Torre di Maratona. Stessa stagione: prima <b>Serie A</b>.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag oro">1° Trofeo</span>
+        <div class="anno">1940</div>
+        <h3>Prima Coppa Italia</h3>
+        <p>Arriva il primo titolo della storia viola: la <b>Coppa Italia 1939-40</b>.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">Scudetto</span>
+        <div class="anno">1956</div>
+        <h3>Il Primo Scudetto ★</h3>
+        <p>Sotto <b>Fulvio Bernardini</b>, con <b>Montuori</b>, <b>Julinho</b> e <b>Sarti</b>,
+        la Fiorentina vince il suo primo <b>Campionato</b> dominando la Serie A 1955-56.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Europa</span>
+        <div class="anno">1957</div>
+        <h3>Finale di Coppa dei Campioni</h3>
+        <p>Prima squadra italiana in finale della massima coppa europea: ko di misura
+        col grande <b>Real Madrid</b> di Di Stéfano. Una notte storica.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">Gloria europea</span>
+        <div class="anno">1961</div>
+        <h3>Coppa delle Coppe 🏆</h3>
+        <p>La Fiorentina vince la <b>prima edizione</b> della Coppa delle Coppe:
+        è il <b>primo trofeo europeo</b> conquistato da un club italiano. Anche Coppa Italia.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Doppietta</span>
+        <div class="anno">1966</div>
+        <h3>Coppa Italia &amp; Mitropa Cup</h3>
+        <p>Doppio successo nella stagione: la Coppa Italia e la prestigiosa <b>Coppa Mitropa</b>.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">Scudetto</span>
+        <div class="anno">1969</div>
+        <h3>Il Secondo Scudetto ★★</h3>
+        <p>La banda di <b>Bruno Pesaola</b> — <b>De Sisti</b>, <b>Amarildo</b>, <b>Chiarugi</b> —
+        riporta il tricolore a Firenze: Campionato 1968-69.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Coppe</span>
+        <div class="anno">1975</div>
+        <h3>Coppa Italia</h3>
+        <p>Nuovo trionfo in Coppa Italia, con i giovani della "Fiorentina Ye-Ye" e la
+        Coppa di Lega Italo-Inglese.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag">L'Unico 10</span>
+        <div class="anno">1982</div>
+        <h3>L'era Antognoni · la beffa scudetto</h3>
+        <p>Negli anni di <b>Giancarlo Antognoni</b>, lo scudetto sfuma all'ultima giornata
+        per un punto. Una ferita che la Fiesole non ha mai dimenticato.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Il Codino</span>
+        <div class="anno">1990</div>
+        <h3>Baggio &amp; la finale UEFA</h3>
+        <p><b>Roberto Baggio</b> incanta Firenze; la squadra raggiunge la <b>finale di Coppa UEFA</b>.
+        La cessione del "Divin Codino" alla Juventus scatena la città.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">Batigol</span>
+        <div class="anno">1996</div>
+        <h3>L'era Batistuta · Coppa &amp; Supercoppa</h3>
+        <p>Con <b>Batistuta</b>, <b>Rui Costa</b> e <b>Toldo</b>: <b>Coppa Italia</b> e
+        <b>Supercoppa Italiana</b>. Batigol resta fedele anche nella discesa in Serie B.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag oro">Coppa Italia</span>
+        <div class="anno">2001</div>
+        <h3>La sesta Coppa Italia</h3>
+        <p>Ultimo trofeo della "vecchia" Fiorentina prima della tempesta finanziaria.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag">Rinascita</span>
+        <div class="anno">2002</div>
+        <h3>Il fallimento e la Fenice</h3>
+        <p>Il crac societario cancella il club. <b>Diego Della Valle</b> rifonda la
+        <b>Fiorentina 1926</b>: si riparte dalla <b>Serie C2</b>, dal fondo, ma con tutta la città.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Risalita</span>
+        <div class="anno">2004</div>
+        <h3>Ritorno in Serie A</h3>
+        <p>In due stagioni la Viola risale dagli inferi del calcio italiano fino alla massima serie.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Champions</span>
+        <div class="anno">2008–10</div>
+        <h3>Le notti di Champions League</h3>
+        <p>Con <b>Cesare Prandelli</b> e talenti come <b>Jovetic</b>, <b>Mutu</b> e <b>Gilardino</b>,
+        Firenze torna grande in Europa, fino agli ottavi di Champions.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag">Per sempre 13</span>
+        <div class="anno">2018</div>
+        <h3>Davide Astori</h3>
+        <p>Il 4 marzo si spegne il capitano <b>Davide Astori</b>. La maglia numero <b>13</b>
+        viene ritirata. Un dolore che ha unito tutto il calcio.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="card">
+        <span class="tag">Nuova era</span>
+        <div class="anno">2019</div>
+        <h3>L'era Commisso</h3>
+        <p>L'imprenditore italo-americano <b>Rocco Commisso</b> rileva il club, avviando
+        il rilancio e il progetto del nuovo centro sportivo <b>Viola Park</b>.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">Europa</span>
+        <div class="anno">2023–24</div>
+        <h3>Due finali di Conference League</h3>
+        <p>La Viola torna a giocarsi un trofeo europeo per <b>due anni di fila</b>:
+        due finali di Conference League, sfiorate per un soffio. Firenze è di nuovo in Europa.</p>
+      </div>
+    </div>
+
+    <div class="evento epica">
+      <div class="card">
+        <span class="tag oro">⚜ Centenario</span>
+        <div class="anno">2026</div>
+        <h3>Cento anni di Fiorentina</h3>
+        <p>Un secolo di storia. Auguri, Viola: <b>1926 → 2026</b>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TROFEI ============ -->
+<section id="trofei" class="alt">
+  <div class="sezione-titolo">
+    <div class="kick">La bacheca</div>
+    <h2>Albo d'Oro</h2>
+  </div>
+  <div class="trofei">
+    <div class="trofeo">
+      <div class="icona">★★</div>
+      <div class="conta">2</div>
+      <div class="nome">Scudetti</div>
+      <div class="anni">1955-56 · 1968-69</div>
+    </div>
+    <div class="trofeo">
+      <div class="icona">🏆</div>
+      <div class="conta">6</div>
+      <div class="nome">Coppe Italia</div>
+      <div class="anni">1940 · 1961 · 1966<br>1975 · 1996 · 2001</div>
+    </div>
+    <div class="trofeo">
+      <div class="icona">🛡️</div>
+      <div class="conta">1</div>
+      <div class="nome">Supercoppa Italiana</div>
+      <div class="anni">1996</div>
+    </div>
+    <div class="trofeo">
+      <div class="icona">⚜️</div>
+      <div class="conta">1</div>
+      <div class="nome">Coppa delle Coppe</div>
+      <div class="anni">1960-61</div>
+    </div>
+    <div class="trofeo">
+      <div class="icona">🌍</div>
+      <div class="conta">1</div>
+      <div class="nome">Coppa Mitropa</div>
+      <div class="anni">1966</div>
+    </div>
+  </div>
+
+  <div class="grafico">
+    <h3>⚜ Trofei per competizione</h3>
+    <div class="barra"><div class="et">Coppa Italia</div><div class="track"><div class="fill oro" style="width:100%">6</div></div></div>
+    <div class="barra"><div class="et">Scudetto</div><div class="track"><div class="fill" style="width:34%">2</div></div></div>
+    <div class="barra"><div class="et">Coppa delle Coppe</div><div class="track"><div class="fill" style="width:18%">1</div></div></div>
+    <div class="barra"><div class="et">Supercoppa Ita.</div><div class="track"><div class="fill" style="width:18%">1</div></div></div>
+    <div class="barra"><div class="et">Coppa Mitropa</div><div class="track"><div class="fill" style="width:18%">1</div></div></div>
+  </div>
+</section>
+
+<!-- ============ UNDICI LEGGENDE ============ -->
+<section id="xi">
+  <div class="sezione-titolo">
+    <div class="kick">Il sogno dei tifosi</div>
+    <h2>L'Undici delle Leggende</h2>
+  </div>
+  <div class="formazione-wrap">
+    <svg class="campo" viewBox="0 0 400 600" role="img" aria-label="Formazione delle leggende viola">
+      <defs>
+        <linearGradient id="prato" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2E7D32"/><stop offset="1" stop-color="#1B5E20"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="600" rx="16" fill="url(#prato)"/>
+      <!-- strisce -->
+      <g fill="#ffffff" opacity="0.05">
+        <rect y="0" width="400" height="75"/><rect y="150" width="400" height="75"/>
+        <rect y="300" width="400" height="75"/><rect y="450" width="400" height="75"/>
+      </g>
+      <!-- linee campo -->
+      <g fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2">
+        <rect x="14" y="14" width="372" height="572" rx="8"/>
+        <line x1="14" y1="300" x2="386" y2="300"/>
+        <circle cx="200" cy="300" r="52"/>
+        <rect x="120" y="14" width="160" height="70"/>
+        <rect x="120" y="516" width="160" height="70"/>
+        <rect x="165" y="14" width="70" height="26"/>
+        <rect x="165" y="560" width="70" height="26"/>
+      </g>
+      <!-- giocatori -->
+      <g font-family="Inter,sans-serif" text-anchor="middle">
+        <!-- helper visual: dot + number + name -->
+        <!-- GK -->
+        <g><circle cx="200" cy="552" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="200" y="557" fill="#fff" font-size="14" font-weight="800">1</text>
+          <text x="200" y="586" fill="#fff" font-size="11" font-weight="700">Toldo</text></g>
+        <!-- DEF -->
+        <g><circle cx="70" cy="455" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="70" y="460" fill="#fff" font-size="14" font-weight="800">3</text>
+          <text x="70" y="489" fill="#fff" font-size="11" font-weight="700">Cervato</text></g>
+        <g><circle cx="155" cy="475" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="155" y="480" fill="#fff" font-size="14" font-weight="800">6</text>
+          <text x="155" y="509" fill="#fff" font-size="11" font-weight="700">Passarella</text></g>
+        <g><circle cx="245" cy="475" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="245" y="480" fill="#fff" font-size="14" font-weight="800">5</text>
+          <text x="245" y="509" fill="#fff" font-size="11" font-weight="700">Pin</text></g>
+        <g><circle cx="330" cy="455" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="330" y="460" fill="#fff" font-size="14" font-weight="800">2</text>
+          <text x="330" y="489" fill="#fff" font-size="11" font-weight="700">Ujfalusi</text></g>
+        <!-- MID -->
+        <g><circle cx="115" cy="330" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="115" y="335" fill="#fff" font-size="14" font-weight="800">8</text>
+          <text x="115" y="364" fill="#fff" font-size="11" font-weight="700">De Sisti</text></g>
+        <g><circle cx="200" cy="305" r="18" fill="#C9A227" stroke="#fff" stroke-width="2.5"/>
+          <text x="200" y="311" fill="#3A1A5B" font-size="15" font-weight="900">10</text>
+          <text x="200" y="340" fill="#FFE9A8" font-size="11.5" font-weight="800">Antognoni</text></g>
+        <g><circle cx="285" cy="330" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="285" y="335" fill="#fff" font-size="13" font-weight="800">20</text>
+          <text x="285" y="364" fill="#fff" font-size="11" font-weight="700">Rui Costa</text></g>
+        <!-- ATT -->
+        <g><circle cx="90" cy="170" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="90" y="175" fill="#fff" font-size="13" font-weight="800">11</text>
+          <text x="90" y="204" fill="#fff" font-size="11" font-weight="700">Baggio</text></g>
+        <g><circle cx="200" cy="140" r="18" fill="#C9A227" stroke="#fff" stroke-width="2.5"/>
+          <text x="200" y="146" fill="#3A1A5B" font-size="15" font-weight="900">9</text>
+          <text x="200" y="175" fill="#FFE9A8" font-size="11.5" font-weight="800">Batistuta</text></g>
+        <g><circle cx="310" cy="170" r="17" fill="#592C82" stroke="#C9A227" stroke-width="2.5"/>
+          <text x="310" y="175" fill="#fff" font-size="14" font-weight="800">7</text>
+          <text x="310" y="204" fill="#fff" font-size="11" font-weight="700">Hamrin</text></g>
+      </g>
+    </svg>
+
+    <div class="modulo-note">
+      <h3>⚜ Modulo 4-3-3</h3>
+      <ul>
+        <li><span>Toldo</span><span class="ruolo">Portiere</span></li>
+        <li><span>Ujfalusi · Passarella · Pin · Cervato</span><span class="ruolo">Difesa</span></li>
+        <li><span>De Sisti · Antognoni · Rui Costa</span><span class="ruolo">Centrocampo</span></li>
+        <li><span>Hamrin · Batistuta · Baggio</span><span class="ruolo">Attacco</span></li>
+      </ul>
+      <p class="nota-piccola">Selezione celebrativa fra tutte le epoche: un omaggio dei tifosi
+      ai campioni che hanno indossato il viola, non una classifica ufficiale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAMPIONI ============ -->
+<section id="campioni" class="alt">
+  <div class="sezione-titolo">
+    <div class="kick">Le bandiere</div>
+    <h2>I Campioni Viola</h2>
+  </div>
+  <div class="griglia">
+    <div class="persona"><div class="top"><div class="num">10</div><div class="nome">Giancarlo Antognoni</div><div class="anni">1972–1987</div></div>
+      <div class="body"><div class="soprannome">L'Unico 10</div><p>Bandiera assoluta, eleganza pura a centrocampo. Campione del Mondo con l'Italia nel 1982. Per Firenze, semplicemente "l'Unico".</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">9</div><div class="nome">Gabriel Batistuta</div><div class="anni">1991–2000</div></div>
+      <div class="body"><div class="soprannome">Batigol · Re Leone</div><p>Il bomber più amato: gol a grappoli e fedeltà rara, restò anche in Serie B. Una statua a Firenze celebra il suo amore per la maglia.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">11</div><div class="nome">Roberto Baggio</div><div class="anni">1985–1990</div></div>
+      <div class="body"><div class="soprannome">Il Divin Codino</div><p>Talento cristallino esploso in viola. La sua cessione alla Juve fece scendere in piazza la città intera.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">7</div><div class="nome">Kurt Hamrin</div><div class="anni">1958–1967</div></div>
+      <div class="body"><div class="soprannome">L'Uccellino</div><p>Ala svedese fulminante, tra i massimi marcatori della storia viola con oltre 200 reti complessive.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">10</div><div class="nome">Manuel Rui Costa</div><div class="anni">1994–2001</div></div>
+      <div class="body"><div class="soprannome">Il Maestro</div><p>Regista portoghese dai piedi di velluto, faro tecnico della grande Fiorentina di fine anni '90.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">1</div><div class="nome">Francesco Toldo</div><div class="anni">1993–2001</div></div>
+      <div class="body"><div class="soprannome">Il Muro</div><p>Portiere gigantesco, protagonista di parate decisive e degli anni più belli della Viola moderna.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">9</div><div class="nome">Miguel Montuori</div><div class="anni">1955–1961</div></div>
+      <div class="body"><div class="soprannome">L'Italo-argentino</div><p>Stella del primo Scudetto 1955-56. Classe e gol nell'epoca d'oro di Bernardini.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">9</div><div class="nome">Luca Toni</div><div class="anni">2005–2007</div></div>
+      <div class="body"><div class="soprannome">Il Bomber</div><p>31 gol in un campionato e la Scarpa d'Oro 2006: un ciclone che riportò entusiasmo al Franchi.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">8</div><div class="nome">Giancarlo De Sisti</div><div class="anni">1965–1974</div></div>
+      <div class="body"><div class="soprannome">Picchio</div><p>Regista del secondo Scudetto 1968-69. Cervello e cuore della Fiorentina campione d'Italia.</p></div></div>
+
+    <div class="persona"><div class="top"><div class="num">8</div><div class="nome">Stevan Jovetic</div><div class="anni">2008–2013</div></div>
+      <div class="body"><div class="soprannome">Jojo</div><p>Talento montenegrino delle notti europee di Prandelli: giocate e gol da fuoriclasse.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ ASTORI ============ -->
+<section id="astori">
+  <div class="astori">
+    <div class="th">13</div>
+    <h3>Davide Astori · Capitano per sempre</h3>
+    <p>Il numero 13 della Fiorentina è stato ritirato in memoria del capitano scomparso
+    il 4 marzo 2018. Un esempio di uomo e di sportivo, vivo nel cuore di Firenze e di tutto il calcio.</p>
+  </div>
+</section>
+
+<!-- ============ DIRIGENZA ============ -->
+<section id="dirigenza" class="alt">
+  <div class="sezione-titolo">
+    <div class="kick">Chi ha guidato la Viola</div>
+    <h2>Presidenti &amp; Dirigenza</h2>
+  </div>
+  <div class="dirigenza">
+    <div class="pres"><div class="periodo">1926–1942</div><div class="nome">Luigi Ridolfi</div><p>Il marchese fondatore: padre della Fiorentina e del suo primo grande sogno.</p></div>
+    <div class="pres"><div class="periodo">Anni '50</div><div class="nome">Enrico Befani</div><p>Presidente dell'epoca d'oro: il primo Scudetto e la finale di Coppa dei Campioni.</p></div>
+    <div class="pres"><div class="periodo">1980–1990</div><div class="nome">Famiglia Pontello</div><p>Gli anni di Antognoni e Baggio, tra grandi emozioni e la beffa scudetto dell'82.</p></div>
+    <div class="pres"><div class="periodo">1990–2002</div><div class="nome">Cecchi Gori</div><p>Mario e Vittorio: l'era Batistuta–Rui Costa, Coppa Italia e Supercoppa, fino al crac.</p></div>
+    <div class="pres"><div class="periodo">2002–2019</div><div class="nome">Diego &amp; Andrea Della Valle</div><p>Rifondano il club dopo il fallimento e lo riportano in Champions League.</p></div>
+    <div class="pres"><div class="periodo">2019–oggi</div><div class="nome">Rocco Commisso</div><p>L'era americana: il Viola Park, le finali di Conference e il rilancio verso il futuro.</p></div>
+  </div>
+
+  <div class="grafico" style="margin-top:40px">
+    <h3>⚜ Allenatori che hanno fatto la storia</h3>
+    <div class="info-grid">
+      <div class="info-card"><div class="ico">🎓</div><h3>Fulvio Bernardini</h3><p>Artefice del <b>1° Scudetto</b> (1955-56).</p></div>
+      <div class="info-card"><div class="ico">🎩</div><h3>Bruno Pesaola</h3><p>Il <b>2° Scudetto</b> (1968-69).</p></div>
+      <div class="info-card"><div class="ico">⭐</div><h3>Cesare Prandelli</h3><p>La Viola di nuovo in <b>Champions League</b>.</p></div>
+      <div class="info-card"><div class="ico">🛩️</div><h3>Vincenzo Italiano</h3><p>Due <b>finali europee</b> di fila.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PER I TIFOSI ============ -->
+<section id="tifosi">
+  <div class="sezione-titolo">
+    <div class="kick">Il cuore viola</div>
+    <h2>Tutto per i Tifosi</h2>
+  </div>
+  <div class="info-grid">
+    <div class="info-card"><div class="ico">🏟️</div><h3>Lo Stadio</h3>
+      <p><b>Stadio Artemio Franchi</b> (1931), capolavoro di <b>Pier Luigi Nervi</b> con la Torre di Maratona. Casa della Viola nel cuore di Campo di Marte.</p></div>
+    <div class="info-card"><div class="ico">⚜️</div><h3>Il Simbolo</h3>
+      <p>Il <b>Giglio di Firenze</b> sul petto. Soprannomi: <b>Viola</b> e <b>Gigliati</b>. Colori sociali: viola e bianco.</p></div>
+    <div class="info-card"><div class="ico">🎶</div><h3>L'Inno</h3>
+      <p>La storica <b>«Canzone Viola»</b> di Narciso Parigi risuona al Franchi prima di ogni partita da generazioni.</p></div>
+    <div class="info-card"><div class="ico">🔥</div><h3>La Curva</h3>
+      <p>La <b>Curva Fiesole</b>: l'anima del tifo viola, tra le più calde e passionali d'Italia.</p></div>
+    <div class="info-card"><div class="ico">⚔️</div><h3>Le Rivalità</h3>
+      <p>Sentitissima quella con la <b>Juventus</b> (dai tempi di Baggio e Roberto Bettega) e il <b>derby dell'Appennino</b> col Bologna.</p></div>
+    <div class="info-card"><div class="ico">🌳</div><h3>Il Viola Park</h3>
+      <p>Il modernissimo centro sportivo voluto da Commisso a Bagno a Ripoli: casa di prima squadra, settore giovanile e femminile.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="giglio">⚜️</div>
+  <h3>Forza Viola · 1926 — 2026</h3>
+  <p>Cento anni di storia, una sola fede.</p>
+  <p style="margin-top:14px">Sito ufficiale: <a href="https://www.acffiorentina.com" target="_blank" rel="noopener">acffiorentina.com</a></p>
+  <p class="mini">Pagina celebrativa amatoriale realizzata per il centenario. Le informazioni sono a scopo divulgativo
+  per i tifosi. ACF Fiorentina, il Giglio e i relativi marchi appartengono ai legittimi proprietari.</p>
+</footer>
+
+</body>
+</html>
